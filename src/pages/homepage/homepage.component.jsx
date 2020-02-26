@@ -1,18 +1,16 @@
 /* eslint-disable no-unused-expressions */
-import React from 'react';
+import React from "react";
 
-import Directory from '../../components/directory/directory.componentn';
+import Directory from "../../components/directory/directory.componentn";
 
-import './homepage.styles.scss';
+import "./homepage.styles.scss";
 
-const HomePage = () => {
-    
-    return(
-        <div className='homepage'>
-            <Directory />
-        </div>
-    );
-
-}
+const HomePage = ({ history }) => {
+	return (
+		<div className='homepage'>
+			<Directory />
+		</div>
+	);
+};
 
 export default HomePage;
