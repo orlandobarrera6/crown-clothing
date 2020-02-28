@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./header.styles.scss";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { ReactComponent as Logo } from "../../assets/crown2.svg";
 
 const Header = () => {
 	return (
@@ -17,6 +17,9 @@ const Header = () => {
 				</Link>
 				<Link className='option' to='/shop'>
 					CONTACT
+				</Link>
+				<Link className='option' to='/signin'>
+					SIGN IN
 				</Link>
 			</div>
 		</div>
