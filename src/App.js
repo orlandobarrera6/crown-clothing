@@ -10,30 +10,53 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shoppage.component";
 import SignInSignUpPage from "./pages/signin-signup/signin-signup.component";
 
-// const particlesOptions = {
-// 	particles: {
-// 		number: {
-// 			value: 200,
-// 			density: {
-// 				enable: true,
-// 				value_area: 800
-// 			}
-// 		}
-// 	}
-// };
+// line 14 gave problems
+import { auth } from "./firebase/firebase.utils";
 
-function App() {
-	return (
-		<div>
-			{/* <Particles className='particles' params={particlesOptions} /> */}
-			<Header />
-			<Switch>
-				<Route exact path='/' component={HomePage} />
-				<Route path='/shop' component={ShopPage} />
-				<Route path='/signin' component={SignInSignUpPage} />
-			</Switch>
-		</div>
-	);
+// I fixed the problem with lines 16 -20 fixed the problem
+// import firebase from "firebase/app";
+// import "firebase/auth";
+// const auth = firebase.auth();
+
+class App extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			currentUser: null
+		};
+	}
+
+	// lines 34 to 43 take care of making our app aware that a user has signed in with google
+	// as well as closing the sign in "subscription"
+
+	unsubscribeFromAuth = null;
+
+	componentDidMount() {
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+			this.setState({ currentUser: user });
+
+			console.log(user);
+		});
+	}
+
+	componentWillUnmount() {
+		this.unsubscribeFromAuth();
+	}
+
+	render() {
+		return (
+			<div>
+				{/* <Particles className='particles' params={particlesOptions} /> */}
+				<Header currentUser={this.state.currentUser} />
+				<Switch>
+					<Route exact path='/' component={HomePage} />
+					<Route path='/shop' component={ShopPage} />
+					<Route path='/signin' component={SignInSignUpPage} />
+				</Switch>
+			</div>
+		);
+	}
 }
 
 export default App;
