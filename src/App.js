@@ -28,7 +28,7 @@ class App extends React.Component {
 	}
 
 	// lines 34 to 43 take care of making our app aware that a user has signed in with google
-	// as well as closing the sign in "subscription"
+	// or email and password as well as closing the sign in "subscription"
 
 	unsubscribeFromAuth = null;
 
@@ -58,7 +58,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				{/* <Particles className='particles' params={particlesOptions} /> */}
 				<Header currentUser={this.state.currentUser} />
 				<Switch>
 					<Route exact path='/' component={HomePage} />
