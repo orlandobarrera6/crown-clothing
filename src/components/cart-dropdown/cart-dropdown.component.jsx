@@ -13,6 +13,7 @@ const CartDropdown = ({ cartItems }) => (
 				<CartItem key={cartItem.id} item={cartItem} />
 			))}
 		</div>
+
 		<CustomButton> Go to Checkout </CustomButton>
 	</div>
 );

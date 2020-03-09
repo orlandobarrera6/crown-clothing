@@ -3,7 +3,7 @@ import React from "react";
 import "./cart-item.styles.scss";
 
 const CartItem = ({ item }) => {
-	let { name, imageUrl, price, quantity } = item;
+	const { name, imageUrl, price, quantity } = item;
 
 	return (
 		<div className='cart-item'>
