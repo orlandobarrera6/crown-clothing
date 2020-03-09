@@ -1,4 +1,4 @@
-import { UserActionTypes } from "./user.types";
+import { UserActionTypes } from "./user-action.types";
 
 // A reducer is just a function that gets two properties 1. a state object
 // which represents the last state or an initial state, 2. receives an action

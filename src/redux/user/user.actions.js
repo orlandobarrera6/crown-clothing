@@ -1,4 +1,4 @@
-import { UserActionTypes } from "./user.types";
+import { UserActionTypes } from "./user-action.types";
 
 // here we are creating and declaring the actions, and they
 // are literally just functions that return an object with
