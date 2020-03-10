@@ -5,6 +5,9 @@ import { connect } from "react-redux"; // this is a HOC that allows us to have a
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+
 import { auth } from "../../firebase/firebase.utils";
 
 import "./header.styles.scss";
@@ -41,16 +44,9 @@ const Header = ({ currentUser, hidden }) => {
 	);
 };
 
-// const mapStateToProps = state => ({
-// 	currentUser: state.user.currentUser,
-// 	hidden: state.cart.hidden
-// });
-
-// This is the same as the above but it is a more advanced way
-// of destructuring the global state
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-	currentUser,
-	hidden
+const mapStateToProps = state => ({
+	currentUser: selectCurrentUser(state),
+	hidden: selectCartHidden(state)
 });
 
 export default connect(mapStateToProps)(Header);
