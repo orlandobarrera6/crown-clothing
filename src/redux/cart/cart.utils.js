@@ -13,3 +13,27 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 	return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+	const newCartItems = cartItems.filter(
+		cartItem => cartItem.id !== cartItemToRemove.id
+	);
+
+	return newCartItems;
+};
+
+export const removeOneItemFromCart = (cartItems, cartItemToRemove) => {
+	const existingCartItem = cartItems.find(
+		cartItem => cartItem.id === cartItemToRemove.id
+	);
+
+	if (existingCartItem.quantity === 1) {
+		return cartItems.filter(cartItem => cartItem.id !== existingCartItem.id);
+	}
+
+	return cartItems.map(cartItem =>
+		cartItem.id === cartItemToRemove.id
+			? { ...cartItem, quantity: cartItem.quantity - 1 }
+			: cartItem
+	);
+};

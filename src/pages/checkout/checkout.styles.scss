@@ -14,11 +14,16 @@
 		border-bottom: 1px solid darkgrey;
 
 		.header-block {
+			text-align: center;
 			text-transform: capitalize;
-			width: 23%;
+			width: 20%;
+
+			&:first-child {
+				text-align: left;
+			}
 
 			&:last-child {
-				width: 8%;
+				text-align: right;
 			}
 		}
 	}
