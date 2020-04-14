@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-expressions */
-import React from "react";
+import React from 'react';
 
-import Directory from "../../components/directory/directory.component";
+import Directory from '../../components/directory/directory.component';
 
-import "./homepage.styles.scss";
+import './homepage.styles.scss';
 
 const HomePage = () => {
 	return (

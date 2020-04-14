@@ -1,18 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux"; // this is a HOC that allows us to have acess to redux
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'; // this is a HOC that allows us to have acess to redux
 
-import CartIcon from "../cart-icon/cart-icon.component";
-import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
 
-import { auth } from "../../firebase/firebase.utils";
+import { auth } from '../../firebase/firebase.utils';
 
-import "./header.styles.scss";
+import './header.styles.scss';
 
-import { ReactComponent as Logo } from "../../assets/crown2.svg";
+import { ReactComponent as Logo } from '../../assets/crown2.svg';
 
 const Header = ({ currentUser, hidden }) => {
 	return (
@@ -29,8 +29,8 @@ const Header = ({ currentUser, hidden }) => {
 				</Link>
 				{currentUser ? (
 					<div className='option' onClick={() => auth.signOut()}>
-						{" "}
-						SIGN OUT{" "}
+						{' '}
+						SIGN OUT{' '}
 					</div>
 				) : (
 					<Link className='option' to='/signin'>
@@ -44,9 +44,9 @@ const Header = ({ currentUser, hidden }) => {
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	currentUser: selectCurrentUser(state),
-	hidden: selectCartHidden(state)
+	hidden: selectCartHidden(state),
 });
 
 export default connect(mapStateToProps)(Header);

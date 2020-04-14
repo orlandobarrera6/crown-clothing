@@ -1,22 +1,22 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // import Particles from "react-particles-js";
 
-import "./App.css";
+import './App.css';
 
-import Header from "./components/header/header.component";
-import HomePage from "./pages/homepage/homepage.component";
-import ShopPage from "./pages/shop/shoppage.component";
-import SignInSignUpPage from "./pages/signin-signup/signin-signup.component";
-import CheckoutPage from "./pages/checkout/checkout.component";
+import Header from './components/header/header.component';
+import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shoppage.component';
+import SignInSignUpPage from './pages/signin-signup/signin-signup.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 
-import { setCurrentUser } from "./redux/user/user.actions";
+import { setCurrentUser } from './redux/user/user.actions';
 
-import { selectCurrentUser } from "./redux/user/user.selectors";
+import { selectCurrentUser } from './redux/user/user.selectors';
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 class App extends React.Component {
 	// lines 34 to 43 take care of making our app aware that a user has signed in with google
@@ -27,14 +27,14 @@ class App extends React.Component {
 	componentDidMount() {
 		const { setCurrentUser } = this.props;
 
-		this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth);
 
-				userRef.onSnapshot(snapShot => {
+				userRef.onSnapshot((snapShot) => {
 					setCurrentUser({
 						id: snapShot.id,
-						...snapShot.data()
+						...snapShot.data(),
 					});
 				});
 			}
@@ -69,12 +69,12 @@ class App extends React.Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	currentUser: selectCurrentUser(state)
+const mapStateToProps = (state) => ({
+	currentUser: selectCurrentUser(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-	setCurrentUser: user => dispatch(setCurrentUser(user))
+const mapDispatchToProps = (dispatch) => ({
+	setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

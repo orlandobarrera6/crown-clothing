@@ -1,14 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-// import {Switch, Route} from 'react-router-dom'
+import CollectionItem from '../../components/collection-item/collection-item.component';
 
-import "./collection.styles.scss";
-import { selectShopCollection } from "../../redux/shop/shop.selectors";
-import CollectionItem from "../../components/collection-item/collection-item.component";
+import { selectShopCollection } from '../../redux/shop/shop.selectors';
 
-const CollectionPage = ({ match, collection }) => {
-	console.log(collection);
+import './collection.styles.scss';
+
+const CollectionPage = ({ collection }) => {
 	const { title, items } = collection;
 
 	return (
@@ -23,11 +22,8 @@ const CollectionPage = ({ match, collection }) => {
 	);
 };
 
-const mapStateToProps = (state, ownProps) => {
-	// const { collectionID } = ownProps.match.params;
-	return {
-		collection: selectShopCollection(ownProps.match.params.collectionID)(state),
-	};
-};
+const mapStateToProps = (state, ownProps) => ({
+	collection: selectShopCollection(ownProps.match.params.collectionID)(state),
+});
 
 export default connect(mapStateToProps)(CollectionPage);

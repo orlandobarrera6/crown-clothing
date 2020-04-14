@@ -8,19 +8,19 @@
 // An action is just a function that returns an object
 // with a type (string value), and a payload.
 
-import { combineReducers } from "redux";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import userReducer from "./user/user.reducer";
-import cartReducer from "./cart/cart.reducer";
-import directoryReducer from "./directory/directory.reducer";
-import shopReducer from "./shop/shop.reducer";
+import userReducer from './user/user.reducer';
+import cartReducer from './cart/cart.reducer';
+import directoryReducer from './directory/directory.reducer';
+import shopReducer from './shop/shop.reducer';
 
 const persistConfig = {
-	key: "root",
+	key: 'root',
 	storage,
-	whiteList: ["cart"],
+	whiteList: ['cart'],
 };
 
 const rootReducer = combineReducers({

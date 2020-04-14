@@ -1,14 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 import {
 	selectCartItems,
-	selectCartItemsTotal
-} from "../../redux/cart/cart.selectors";
+	selectCartItemsTotal,
+} from '../../redux/cart/cart.selectors';
 
-import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
-import "./checkout.styles.scss";
+import './checkout.styles.scss';
 
 const CheckoutPage = ({ cartItems, total }) => {
 	return (
@@ -20,7 +20,7 @@ const CheckoutPage = ({ cartItems, total }) => {
 				<div className='header-block'>Price</div>
 				<div className='header-block'>Remove</div>
 			</div>
-			{cartItems.map(cartItem => (
+			{cartItems.map((cartItem) => (
 				<CheckoutItem key={cartItem.id} cartItem={cartItem} />
 			))}
 			<div className='total'>Total = ${total}</div>
@@ -28,9 +28,9 @@ const CheckoutPage = ({ cartItems, total }) => {
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	cartItems: selectCartItems(state),
-	total: selectCartItemsTotal(state)
+	total: selectCartItemsTotal(state),
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

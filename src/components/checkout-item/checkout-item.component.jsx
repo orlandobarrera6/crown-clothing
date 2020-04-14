@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import {
 	removeItem,
 	removeOneItem,
-	addItem
-} from "../../redux/cart/cart.actions";
+	addItem,
+} from '../../redux/cart/cart.actions';
 
-import "./checkout-item.styles.scss";
+import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeOneItem }) => {
 	const { name, imageUrl, price, quantity } = cartItem;
@@ -35,10 +35,10 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeOneItem }) => {
 	);
 };
 
-const mapDispatchToProps = dispatch => ({
-	addItem: item => dispatch(addItem(item)),
-	clearItem: item => dispatch(removeItem(item)),
-	removeOneItem: item => dispatch(removeOneItem(item))
+const mapDispatchToProps = (dispatch) => ({
+	addItem: (item) => dispatch(addItem(item)),
+	clearItem: (item) => dispatch(removeItem(item)),
+	removeOneItem: (item) => dispatch(removeOneItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);

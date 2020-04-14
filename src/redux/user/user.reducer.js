@@ -1,4 +1,4 @@
-import { UserActionTypes } from "./user-action.types";
+import { UserActionTypes } from './user-action.types';
 
 // A reducer is just a function that gets two properties 1. a state object
 // which represents the last state or an initial state, 2. receives an action
@@ -7,7 +7,7 @@ import { UserActionTypes } from "./user-action.types";
 
 // redux does not know the initial state
 const INITIAL_STATE = {
-	currentUser: null
+	currentUser: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -17,7 +17,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 		case UserActionTypes.SET_CURRENT_USER:
 			return {
 				...state,
-				currentUser: action.payload
+				currentUser: action.payload,
 			};
 		default:
 			return state;
