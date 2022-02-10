@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.9.3",
     "hide-scrollbar-react": "^1.1.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-particles-js": "^2.7.1",
